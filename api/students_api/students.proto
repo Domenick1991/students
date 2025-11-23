@@ -1,0 +1,36 @@
+syntax = "proto3";
+package students.service.v1;
+option go_package = "github.com/Domenick1991/students/internal/pb/students_api";
+import "models/student_model.proto";
+import "google/api/annotations.proto";
+
+service StudentsService {
+   rpc GetStudentInfoByIDs (GetStudentInfoByIDsRequest) returns (GetStudentInfoByIDsResponse) {
+        option (google.api.http) = {
+            post: "/studentInfo/get-by-ids"
+            body: "*"
+        };
+    }
+
+    rpc UpsertStudentInfos (GetStudentInfoUpsertRequest) returns (GetStudentInfoUpsertResponce) {
+        option (google.api.http) = {
+            post: "/studentInfo/upsert"
+            body: "*"
+        };
+    }
+ }
+
+message GetStudentInfoByIDsRequest {
+    repeated uint64 ids = 1;
+}
+
+message GetStudentInfoByIDsResponse {
+    repeated students.models.v1.StudentsInfoModel studentInfos = 1;
+}
+
+message GetStudentInfoUpsertRequest {
+    repeated students.models.v1.StudentsUpsertModel students = 1;
+}
+
+message GetStudentInfoUpsertResponce {
+}

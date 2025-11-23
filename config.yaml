@@ -1,0 +1,13 @@
+database:
+  host: "localhost"
+  port: 5432
+  username: "admin"
+  password: "admin"
+  name: "students"
+  ssl_mode: "disable"
+
+kafka:
+  host: "localhost"
+  port: 9092
+  student_info_upsert_topic_name: "studens_info_upsert"
+  student_info_event_topic_name: "studens_info_event"
