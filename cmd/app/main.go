@@ -16,10 +16,10 @@ func main() {
 	}
 
 	studentsStorage := bootstrap.InitPGStorage(cfg)
-	studentService := bootstrap.NewStudentService(studentsStorage)
+	studentService := bootstrap.InitStudentService(studentsStorage)
 	studentsInfoProcessor := bootstrap.InitStudentsInfoProcessor(studentService)
 	studentsinfoupsertconsumer := bootstrap.InitStudentInfoUpsertConsumer(cfg, studentsInfoProcessor)
-	students_api := bootstrap.NewStudentServiceAPI(studentService)
+	students_api := bootstrap.InitStudentServiceAPI(studentService)
 
 	bootstrap.AppRun(*students_api, studentsinfoupsertconsumer)
 }

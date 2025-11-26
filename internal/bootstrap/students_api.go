@@ -1,10 +1,10 @@
 package bootstrap
 
 import (
-	server "github.com/Domenick1991/students/internal/api/students_api"
-	"github.com/Domenick1991/students/internal/services/students"
+	server "github.com/Domenick1991/students/internal/api/student_service_api"
+	"github.com/Domenick1991/students/internal/services/studentsService"
 )
 
-func NewStudentServiceAPI(studentService *students.StudentService) *server.StudentServiceAPI {
+func InitStudentServiceAPI(studentService *studentsService.StudentService) *server.StudentServiceAPI {
 	return server.NewStudentServiceAPI(studentService)
 }

@@ -1,4 +1,4 @@
-package students
+package studentsService
 
 import (
 	"context"

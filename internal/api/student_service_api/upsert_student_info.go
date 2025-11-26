@@ -1,4 +1,4 @@
-package studentsapi
+package student_service_api
 
 import (
 	"context"

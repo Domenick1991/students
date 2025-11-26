@@ -8,7 +8,7 @@ import (
 	"net/http"
 	"os"
 
-	server "github.com/Domenick1991/students/internal/api/students_api"
+	server "github.com/Domenick1991/students/internal/api/student_service_api"
 	studentsinfoupsertconsumer "github.com/Domenick1991/students/internal/consumer/students_Info_upsert_consumer"
 
 	"github.com/Domenick1991/students/internal/pb/students_api"
