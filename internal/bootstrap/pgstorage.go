@@ -11,10 +11,10 @@ import (
 func InitPGStorage(cfg *config.Config) *pgstorage.PGstorage {
 
 	connectionString := fmt.Sprintf("postgres://%s:%s@%s:%d/%s",
-		cfg.Database.Username, cfg.Database.Password, cfg.Database.Host, cfg.Database.Port, cfg.Database.Name)
+		cfg.Database.Username, cfg.Database.Password, cfg.Database.Host, cfg.Database.Port, cfg.Database.DBName)
 	storage, err := pgstorage.NewPGStorge(connectionString)
 	if err != nil {
-		log.Panic(fmt.Sprintf("ошибка парсинга конфига, %v", err))
+		log.Panic(fmt.Sprintf("ошибка инициализации БД, %v", err))
 		panic(err)
 	}
 	return storage

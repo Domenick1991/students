@@ -31,7 +31,7 @@ func (storage *PGstorage) upsertQuery(studentInfos []*models.StudentInfo) squirr
 		}
 	})
 
-	q := squirrel.Insert(tableName).Columns(NamecolumnName, EmailcolumnName, AgecolumnName).
+	q := squirrel.Insert(tableName).Columns(NameСolumnName, EmailСolumnName, AgeСolumnName).
 		PlaceholderFormat(squirrel.Dollar)
 	for _, info := range infos {
 		q = q.Values(info.Name, info.Email, info.Age)

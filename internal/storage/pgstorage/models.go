@@ -10,8 +10,8 @@ type StudentInfo struct {
 const (
 	tableName = "studentsInfo"
 
-	IDcolumnName    = "id"
-	NamecolumnName  = "name"
-	EmailcolumnName = "email"
-	AgecolumnName   = "age"
+	IDСolumnName    = "id"
+	NameСolumnName  = "name"
+	EmailСolumnName = "email"
+	AgeСolumnName   = "age"
 )

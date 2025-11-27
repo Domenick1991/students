@@ -8,8 +8,9 @@ import (
 )
 
 type Config struct {
-	Database DatabaseConfig `yaml:"database"`
-	Kafka    KafkaConfig    `yaml:"kafka"`
+	Database               DatabaseConfig         `yaml:"database"`
+	Kafka                  KafkaConfig            `yaml:"kafka"`
+	StudentServiceSettings StudentServiceSettings `yaml:"StudentServiceSettings"`
 }
 
 type DatabaseConfig struct {
@@ -17,7 +18,7 @@ type DatabaseConfig struct {
 	Port     int    `yaml:"port"`
 	Username string `yaml:"username"`
 	Password string `yaml:"password"`
-	Name     string `yaml:"name"`
+	DBName   string `yaml:"name"`
 	SSLMode  string `yaml:"ssl_mode"`
 }
 
@@ -26,6 +27,11 @@ type KafkaConfig struct {
 	Port                       int    `yaml:"port"`
 	StudentInfoUpsertTopicName string `yaml:"student_info_upsert_topic_name"`
 	StudentInfoEventTopicName  string `yaml:"student_info_event_topic_name"`
+}
+
+type StudentServiceSettings struct {
+	MinNameLen int `yaml:"minNameLen"`
+	MaxNameLen int `yaml:"maxNameLen"`
 }
 
 func LoadConfig(filename string) (*Config, error) {

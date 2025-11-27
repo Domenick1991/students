@@ -13,9 +13,11 @@ type studentStorage interface {
 
 type StudentService struct {
 	studentStorage studentStorage
+	minNameLen     int
+	maxNameLen     int
 }
 
-func NewStudentService(ctx context.Context, studentStorage studentStorage) *StudentService {
+func NewStudentService(ctx context.Context, studentStorage studentStorage, minNameLen, maxNameLen int) *StudentService {
 	return &StudentService{
 		studentStorage: studentStorage,
 	}

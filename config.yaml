@@ -11,3 +11,8 @@ kafka:
   port: 9092
   student_info_upsert_topic_name: "studens_info_upsert"
   student_info_event_topic_name: "studens_info_event"
+
+StudentServiceSettings:
+  minNameLen: 1
+  maxNameLen: 50
+  

@@ -30,7 +30,7 @@ func (storage *PGstorage) GetStudentInfoByIDs(ctx context.Context, IDs []uint64)
 }
 
 func (storage *PGstorage) getQuery(IDs []uint64) squirrel.Sqlizer {
-	q := squirrel.Select(IDcolumnName, NamecolumnName, EmailcolumnName, AgecolumnName).From(tableName).
-		Where(squirrel.Eq{IDcolumnName: IDs}).PlaceholderFormat(squirrel.Dollar)
+	q := squirrel.Select(IDСolumnName, NameСolumnName, EmailСolumnName, AgeСolumnName).From(tableName).
+		Where(squirrel.Eq{IDСolumnName: IDs}).PlaceholderFormat(squirrel.Dollar)
 	return q
 }

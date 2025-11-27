@@ -41,7 +41,7 @@ func (s *PGstorage) initTables() error {
         %v VARCHAR(100) NOT NULL,
         %v VARCHAR(255) UNIQUE NOT NULL,
         %v INT
-    )`, tableName, IDcolumnName, NamecolumnName, EmailcolumnName, AgecolumnName)
+    )`, tableName, IDСolumnName, NameСolumnName, EmailСolumnName, AgeСolumnName)
 	_, err := s.db.Exec(context.Background(), sql)
 	if err != nil {
 		return errors.Wrap(err, "initition tables")
