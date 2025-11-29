@@ -24,7 +24,7 @@ func (s *StudentServiceSuite) SetupTest() {
 	s.studentService = NewStudentService(s.ctx, s.studentStorage, 0, 100)
 }
 
-func (s *StudentServiceSuite) TestUpsert() {
+func (s *StudentServiceSuite) TestUpsertSuccess() {
 	studentsInfos := []*models.StudentInfo{
 		{
 			ID:    1,
@@ -58,6 +58,22 @@ func (s *StudentServiceSuite) TestUpsertError() {
 	err := s.studentService.UpsertStudentInfo(s.ctx, studentsInfos)
 
 	assert.ErrorIs(s.T(), err, wantErr)
+
+}
+
+func (s *StudentServiceSuite) TestUpsertNameError() {
+	studentsInfos := []*models.StudentInfo{
+		{
+			ID:    1,
+			Name:  "",
+			Age:   25,
+			Email: "vasya@mail.ru",
+		},
+	}
+
+	err := s.studentService.UpsertStudentInfo(s.ctx, studentsInfos)
+
+	assert.Check(s.T(), err != nil)
 
 }
 

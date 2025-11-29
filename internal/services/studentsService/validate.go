@@ -11,7 +11,7 @@ import (
 
 func (s *StudentService) validateInfo(studentsInfos []*models.StudentInfo) error {
 	for _, info := range studentsInfos {
-		if len(info.Name) <= s.minNameLen && len(info.Name) >= s.maxNameLen {
+		if len(info.Name) <= s.minNameLen || len(info.Name) >= s.maxNameLen {
 			return errors.New("имя не должно быть пустым и не должно превышать 100 символов")
 		}
 		if info.Age <= 0 || info.Age > 100 {
